@@ -58,17 +58,16 @@ document.getElementById('aug-21').addEventListener('click', function(){
 
 
 // for promo code
-// document.getElementById('apply-btn').addEventListener('click', function(){
-//     const promoCodeInput = document.getElementById('promo-code-input');
-//     console.log(promoCodeInput);
-//     console.log(promoCodeInput.value);
-//     const promoCodeResult = parseInt(document.getElementById('promo-code-result').innerText);
-//     console.log(promoCodeResult);
-//     console.log(promoCodeResult.innerText);
+document.getElementById('apply-btn').addEventListener('click', function(){
+    const promoCodeInput = document.getElementById('promo-code-input');
+    const promoCodeInputValue = promoCodeInput.value;
 
-//     if (promoCodeInput.value == 'stevekaku') {
-//         promoCodeResult.innerText = promoCodeResult - (promoCodeResult * 0.2);
-//         console.log(promoCodeInput.value);
-//         console.log(promoCodeResult.innerText);
-//     }
-// })
+    if (promoCodeInputValue == 'stevekaku') {
+        const promoCodeResult = document.getElementById('total-price');
+        const total = parseInt(promoCodeResult.innerText);
+        const promoCodeTotal = total-(total*0.2)
+
+        document.getElementById('promo-code-result').innerText = promoCodeTotal;
+    }
+    promoCodeInput.value = ' ';
+})
