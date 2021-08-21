@@ -1,57 +1,74 @@
-function pcConfiguration(extra, isZero, charge) {
+function pcConfiguration(extra, charge) {
     const extraCharge = document.getElementById(extra+'-charge');
+    extraCharge.innerText = charge;
+    calculateTotal()
+}
 
-    if (isZero == 1) {
-        extraCharge.innerText = charge;
-    }
-    else if (isZero == 0){
-        extraCharge.innerText = charge;
-    }
-    else{
-        extraCharge.innerText = charge;
-    }
 
+function getInputValue(extra) {
+    const extraCharge = parseInt(document.getElementById(extra + '-charge').innerText);
+    return extraCharge;
+}
+
+
+function calculateTotal() {
+    const memoryCharge = getInputValue('memory');
+    const storageCharge = getInputValue('storage');
+    const deliveryCharge = getInputValue('delivery');
 
     const bestPrice = parseInt(document.getElementById('fixed-price').innerText);
-    const memoryCharge = parseInt(document.getElementById('memory-charge').innerText);
-    const storageCharge = parseInt(document.getElementById('storage-charge').innerText);
-    const deliveryCharge = parseInt(document.getElementById('delivery-charge').innerText);
+    const totalPrice = bestPrice + memoryCharge + storageCharge + deliveryCharge;
+    document.getElementById('total-price').innerText = totalPrice;
 
-    const totalPrice = document.getElementById('total-price');
-    totalPrice.innerText = bestPrice + memoryCharge + storageCharge + deliveryCharge;
-
+    const promoCodeResult = document.getElementById('promo-code-result');
+    promoCodeResult.innerText = document.getElementById('total-price').innerText;
 }
 /*---------- memory ----------*/
 document.getElementById('8gb-memory').addEventListener('click', function(){
-    pcConfiguration('memory', 1, 0);
+    pcConfiguration('memory', 0);
 })
 
 document.getElementById('16gb-memory').addEventListener('click', function(){
-    pcConfiguration('memory', 0, 180);
+    pcConfiguration('memory', 180);
 })
-
 
 
 /*---------- storage ----------*/
 document.getElementById('256gb-storage').addEventListener('click', function(){
-    pcConfiguration('storage', 1, 0);
+    pcConfiguration('storage', 0);
 })
 
 document.getElementById('512gb-storage').addEventListener('click', function(){
-    pcConfiguration('storage', 0, 100);
+    pcConfiguration('storage', 100);
 })
 
 document.getElementById('1tb-storage').addEventListener('click', function(){
-    pcConfiguration('storage', 2, 180);
+    pcConfiguration('storage', 180);
 })
-
 
 
 /*---------- delivery charge ----------*/
 document.getElementById('aug-27').addEventListener('click', function(){
-    pcConfiguration('delivery', 1, 0);
+    pcConfiguration('delivery', 0);
 })
 
 document.getElementById('aug-21').addEventListener('click', function(){
-    pcConfiguration('delivery', 0, 20);
+    pcConfiguration('delivery', 20);
 })
+
+
+// for promo code
+// document.getElementById('apply-btn').addEventListener('click', function(){
+//     const promoCodeInput = document.getElementById('promo-code-input');
+//     console.log(promoCodeInput);
+//     console.log(promoCodeInput.value);
+//     const promoCodeResult = parseInt(document.getElementById('promo-code-result').innerText);
+//     console.log(promoCodeResult);
+//     console.log(promoCodeResult.innerText);
+
+//     if (promoCodeInput.value == 'stevekaku') {
+//         promoCodeResult.innerText = promoCodeResult - (promoCodeResult * 0.2);
+//         console.log(promoCodeInput.value);
+//         console.log(promoCodeResult.innerText);
+//     }
+// })
