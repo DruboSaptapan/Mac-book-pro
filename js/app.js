@@ -57,11 +57,12 @@ document.getElementById('aug-21').addEventListener('click', function(){
 })
 
 
-// for promo code
+/*---------- for promo code ----------*/
 document.getElementById('apply-btn').addEventListener('click', function(){
     const promoCodeInput = document.getElementById('promo-code-input');
     const promoCodeInputValue = promoCodeInput.value;
 
+    /*---------- promo code condition ----------*/
     if (promoCodeInputValue == 'stevekaku') {
         const promoCodeResult = document.getElementById('total-price');
         const total = parseInt(promoCodeResult.innerText);
