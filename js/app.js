@@ -1,41 +1,57 @@
+function pcConfiguration(extra, isZero, charge) {
+    const extraCharge = document.getElementById(extra+'-charge');
+
+    if (isZero == 1) {
+        extraCharge.innerText = charge;
+    }
+    else if (isZero == 0){
+        extraCharge.innerText = charge;
+    }
+    else{
+        extraCharge.innerText = charge;
+    }
+
+
+    const bestPrice = parseInt(document.getElementById('fixed-price').innerText);
+    const memoryCharge = parseInt(document.getElementById('memory-charge').innerText);
+    const storageCharge = parseInt(document.getElementById('storage-charge').innerText);
+    const deliveryCharge = parseInt(document.getElementById('delivery-charge').innerText);
+
+    const totalPrice = document.getElementById('total-price');
+    totalPrice.innerText = bestPrice + memoryCharge + storageCharge + deliveryCharge;
+
+}
 /*---------- memory ----------*/
 document.getElementById('8gb-memory').addEventListener('click', function(){
-    const memory8gb = document.getElementById('memory-price');
-    memory8gb.innerText = 0;
+    pcConfiguration('memory', 1, 0);
 })
 
 document.getElementById('16gb-memory').addEventListener('click', function(){
-    const memory16gb = document.getElementById('memory-price');
-    memory16gb.innerText = 180;
+    pcConfiguration('memory', 0, 180);
 })
 
 
 
 /*---------- storage ----------*/
 document.getElementById('256gb-storage').addEventListener('click', function(){
-    const storage256gb = document.getElementById('storage-price');
-    storage256gb.innerText = 0;
+    pcConfiguration('storage', 1, 0);
 })
 
 document.getElementById('512gb-storage').addEventListener('click', function(){
-    const storage512gb = document.getElementById('storage-price');
-    storage512gb.innerText = 100;
+    pcConfiguration('storage', 0, 100);
 })
 
 document.getElementById('1tb-storage').addEventListener('click', function(){
-    const storage1tb = document.getElementById('storage-price');
-    storage1tb.innerText = 180;
+    pcConfiguration('storage', 2, 180);
 })
 
 
 
 /*---------- delivery charge ----------*/
 document.getElementById('aug-27').addEventListener('click', function(){
-    const aug27 = document.getElementById('delivery-charge');
-    aug27.innerText = 0;
+    pcConfiguration('delivery', 1, 0);
 })
 
 document.getElementById('aug-21').addEventListener('click', function(){
-    const aug21 = document.getElementById('delivery-charge');
-    aug21.innerText = 20;
+    pcConfiguration('delivery', 0, 20);
 })
