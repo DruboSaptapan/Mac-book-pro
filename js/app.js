@@ -69,5 +69,5 @@ document.getElementById('apply-btn').addEventListener('click', function(){
 
         document.getElementById('promo-code-result').innerText = promoCodeTotal;
     }
-    promoCodeInput.value = ' ';
+    promoCodeInput.value = '';
 })
